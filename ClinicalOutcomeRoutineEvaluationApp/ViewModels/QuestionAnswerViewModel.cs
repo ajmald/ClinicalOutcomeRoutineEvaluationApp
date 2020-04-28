@@ -10,8 +10,8 @@ namespace ClinicalOutcomeRoutineEvaluationApp.ViewModels
     public class QuestionAnswerViewModel
     {
         public DateTime Date { get;set; }
+        public Random Random { get; set; }
         public List<Question> Questions { get; set; }
-
         public List<Answer> Answers { get; set; }
     }
 }

@@ -39,21 +39,28 @@ namespace ClinicalOutcomeRoutineEvaluationApp.Controllers
             _questions.Add(new Question { Text = "J'ai senti pouvoir me tourner vers quelqu'un quand j'avais besoin", Type = "F", Answers = _answers });
             _questions.Add(new Question { Text = "Je me sens bien", Type = "W", Answers = _answers });
             _questions.Add(new Question { Text = "Je pense manquer d'energie et d'enthousiame", Type = "P", Answers = _answers });
+            _questions.Add(new Question { Text = "J'ai ete physiquement violent envers les autres", Type = "R", Answers = _answers });
+            _questions.Add(new Question { Text = "Je me suis senti capable de me debrouiller quand les choses n'allaient pas", Type = "F", Answers = _answers });
+            _questions.Add(new Question { Text = "J'ai eu des douleurs physiques divers", Type = "W", Answers = _answers });
+            _questions.Add(new Question { Text = "J'ai pense a me fair du mal", Type = "R", Answers = _answers });
 
             QuestionAnswerViewModel _questionAnswerVM = new QuestionAnswerViewModel()
             {
                 Date = DateTime.Today,
+                Random = new Random(),
                 Questions = _questions,
                 Answers = _answers
             };
-
+            
 
             return View(_questionAnswerVM);
         }
 
-   
+        
 
-        public IActionResult Privacy()
+
+
+            public IActionResult Privacy()
         {
             return View();
         }

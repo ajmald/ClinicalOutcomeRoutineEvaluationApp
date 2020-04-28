@@ -12,6 +12,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.3/nv.d3.min.js"></script>
+    <script src="https://rawgit.com/enplore/nvd3-charts/master/gauge.js"></script>
+    <script src="https://rawgit.com/enplore/nvd3-charts/master/gaugeChart.js"></script>
+    <script src="~/js/site.js?$$REVISION$$"></script>
     <style>
         .fakeimg {
             height: 200px;
@@ -32,62 +37,76 @@
             <div class="row">
 
                 <div class="col-sm-8">
-                    <h2>Please answer the following question;l;s</h2>
-                    <h5>@Model.Date</h5>
-
-                    <div class="form-group" id="">
-                        <div class="input-group">
-                            <label asp-for="" id="" class="control-label"></label>
-                        </div>
+                    <h2>Test Psychologique par rapport au confinement </h2>
+                    <!--<h5>@Model.Date</h5>-->
+                    <br />
+                    <div class="form-group" id="form">
 
                         @for (var i = 0; i < Model.Questions.Count; i++)
                         {
-                    <div class="input-group">
-                        <label><b>@Model.Questions[i].Text</b></label>
-                        @for (var j = 0; j < Model.Answers.Count; j++)
-                        {
-                            
-                            //<input asp-for="Answers" type="radio" class="btn-group btn-group-vertical" value="@Model.Answers[j].Score" /> @Model.Answers[j].Text
-                        <div class="form-check">
-                        <label class="form-check-label">
-                        <input asp-for="Answers" type="radio" class="btn-group btn-group-vertical" value="@Model.Answers[j].Score" /> @Model.Answers[j].Text
-                        </label>
-                        
-                    </div>
-                               
-                              
 
-                           
-                        }
+                            <div class="input-group" id="">
+                                <label><b>@Model.Questions[i].Text</b></label>
+                                <input name="QuestionType" class="test" type="hidden" value="@Model.Questions[i].Type">
 
+                                @for (var j = 0; j < Model.Answers.Count; j++)
+                                {
+                                    <div class="container" style="margin-top:10px">
+                                        <div class="form-check">
+                                            <input class="radio-button" type="radio" id="radioanswer_@Model.Random.Next(1,100)" name="radioanswer_@i" value="@Model.Answers[j].Score">
+                                            <label class="form-check-label" for="radioanswer_@i" >
+                                                @Model.Answers[j].Text
+                                            </label>
+                                        </div>
+                                    </div>
 
-
-                    </div>
+                                }
+                            </div>
                             <br />
                         }
+
                     </div>
 
-
-                
-
-
-
-
-
-
-
-                    <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col text-center">
+                                <button type="button" class="btn btn-outline-primary" onclick="submitTest()">Soumettez le test</button>
+                            </div>
+                        </div>
+                    </div>
                     <br>
-
                 </div>
             </div>
 
-            </form>
+        </form>
     </div>
 
-    <div class="jumbotron text-center" style="margin-bottom:0">
-        <p>Footer</p>
+    <div class="row">
+        <div id="gauge-chart-w" class="col-sm-6">
+            <svg>
+            </svg>
+            <label id="w" style="font-size:20px">Bien-être</label>
+        </div>
+        <div id="gauge-chart-f" class="col-sm-6">
+            <svg></svg>
+            <label id="f" style="font-size:20px">Fonctionnement</label>
+        </div>
     </div>
+
+    <div class="row">
+        <div id="gauge-chart-p" class="col-sm-6">
+            <svg></svg>
+            <label id="p" style="font-size:20px">Problèmes et Symptômes</label>
+        </div>
+        <div id="gauge-chart-r" class="col-sm-6">
+            <svg></svg>
+            <label id="r" style="font-size:20px">Risque</label>
+        </div>
+
+    </div>
+        <div class="jumbotron text-center" style="margin-bottom:0">
+            <p>Footer</p>
+        </div>
 
 </body>
 </html>
