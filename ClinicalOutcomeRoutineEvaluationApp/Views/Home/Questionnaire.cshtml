@@ -1,0 +1,122 @@
+﻿@model ClinicalOutcomeRoutineEvaluationApp.ViewModels.QuestionAnswerViewModel
+@{
+    ViewData["Title"] = "Covid-19 Confinement Effect - Psychological Assessment";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test psychologique par rapport au COVID-19 </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.16/d3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/nvd3/1.8.3/nv.d3.min.js"></script>
+    <script src="https://rawgit.com/enplore/nvd3-charts/master/gauge.js"></script>
+    <script src="https://rawgit.com/enplore/nvd3-charts/master/gaugeChart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="~/js/questionnaire.js"></script>
+    <style>
+        .fakeimg {
+            height: 200px;
+            background: #aaa;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <a class="navbar-brand" href="/">Test psychologique par rapport au COVID-19</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+    </nav>
+
+    <div class="container" style="margin-top:30px">
+        <form asp-action="" name="" id="">
+            <div class="row">
+
+                <div class="col-sm-8">
+
+
+                    <br />
+                    <div class="form-group" id="form">
+
+                        @for (var i = 0; i < Model.Questions.Count; i++)
+                        {
+
+                            <div class="input-group" id="">
+                                <label><b>@Model.Questions[i].Text</b></label>
+                                <input name="QuestionType" class="test" type="hidden" value="@Model.Questions[i].Type">
+
+                                @for (var j = 0; j < Model.Answers.Count; j++)
+                                {
+                                    <div class="container" style="margin-top:10px">
+                                        <div class="form-check">
+                                            <input class="radio-button" type="radio" id="radioanswer_@Model.Random.Next(1,100)" name="radioanswer_@i" value="@Model.Answers[j].Score">
+                                            <label class="form-check-label" for="radioanswer_@i">
+                                                @Model.Answers[j].Text
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                }
+                            </div>
+                            <br />
+                        }
+
+                    </div>
+                    <div class="container">
+                            <div class="row">
+                                <div class="col text-center">
+                                    <button type="button" id="btnSoumettreTest" class="btn btn-outline-primary" onclick="submitTest()">Valider le test</button>
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                            <div class="row">
+                                <div class="col text-center">
+                                    <button type="button" id="btnRefaireTest" class="btn btn-outline-primary" disabled onclick="retakeTest()">Refaire le test</button>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <br>
+                    </div>
+                </div>
+
+        </form>
+    </div>
+
+    <div class="row">
+        <div id="gauge-chart-w" class="col-sm-6">
+            <svg>
+            </svg>
+            <label id="w" style="font-size:20px">Bien-être</label>
+        </div>
+        <div id="gauge-chart-f" class="col-sm-6">
+            <svg></svg>
+            <label id="f" style="font-size:20px">Fonctionnement</label>
+        </div>
+    </div>
+
+    <div class="row">
+        <div id="gauge-chart-p" class="col-sm-6">
+            <svg></svg>
+            <label id="p" style="font-size:20px">Problèmes et Symptômes</label>
+        </div>
+        <div id="gauge-chart-r" class="col-sm-6">
+            <svg></svg>
+            <label id="r" style="font-size:20px">Risque</label>
+        </div>
+
+    </div>
+    <nav class="navbar navbar-dark bg-dark mt-5">
+        <div class="navbar-expand m-auto navbar-text">
+            <p>Développé avec <i class="fa fa-heart" aria-hidden="true"></i> par  <a href="https://ajmaldookhan.com">Ajmal</a></p>
+        </div>
+    </nav>
+</body>
+</html>

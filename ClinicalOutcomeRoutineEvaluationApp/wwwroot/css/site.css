@@ -24,8 +24,18 @@ a {
   border-color: #1861ac;
 }
 
+body {
+    background-image: url("../img/background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+p.ex {
+    color: black;
+}
 
-
+.p:hover {
+    color: yellow;
+}
 /* Sticky footer styles
 -------------------------------------------------- */
 html {
@@ -66,57 +76,56 @@ button.accept-policy {
         align-items: center;
     }
 
-[type="radio"]:checked,
-[type="radio"]:not(:checked) {
-    position: absolute;
-    left: -9999px;
+
+#btnRefaireTest {
+display:none;
 }
 
-    [type="radio"]:checked + label,
-    [type="radio"]:not(:checked) + label {
-        position: relative;
-        padding-left: 28px;
-        cursor: pointer;
-        line-height: 20px;
-        display: inline-block;
-        color: #666;
-    }
+.fa-heart {
+    color: hotpink;
+}
 
-        [type="radio"]:checked + label:before,
-        [type="radio"]:not(:checked) + label:before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 18px;
-            height: 18px;
-            border: 1px solid #ddd;
-            border-radius: 100%;
-            background: #fff;
-        }
 
-        [type="radio"]:checked + label:after,
-        [type="radio"]:not(:checked) + label:after {
-            content: '';
-            width: 12px;
-            height: 12px;
-            background: #F87DA9;
-            position: absolute;
-            top: 4px;
-            left: 4px;
-            border-radius: 100%;
-            -webkit-transition: all 0.2s ease;
-            transition: all 0.2s ease;
-        }
 
-        [type="radio"]:not(:checked) + label:after {
-            opacity: 0;
-            -webkit-transform: scale(0);
-            transform: scale(0);
-        }
 
-        [type="radio"]:checked + label:after {
-            opacity: 1;
-            -webkit-transform: scale(1);
-            transform: scale(1);
-        }
+.outer {
+    padding-top: 120px;
+    width: 850px;
+    margin: auto;
+    display: block;
+    /* set the font color here as a background color, in this case black
+  background-color: black; */
+}
+
+.bg {
+    text-align: center;
+    width: 0%;
+    transition: all 0.6s ease-out;
+    background: #3ebac6 background: -moz-linear-gradient(left, #3ebac6 0%, #8b539e 50%, #e53782 100%);
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%, #3ebac6), color-stop(50%, #8b539e), color-stop(100%, #e53782));
+    background: -webkit-linear-gradient(left, #3ebac6 0%, #8b539e 50%, #e53782 100%);
+    background: -o-linear-gradient(left, #3ebac6 0%, #8b539e 50%, #e53782 100%);
+    background: -ms-linear-gradient(left, #3ebac6 0%, #8b539e 50%, #e53782 100%);
+    background: linear-gradient(to right, #3ebac6 0%, #8b539e 50%, #e53782 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#3ebac6', endColorstr='#e53782', GradientType=1);
+}
+
+.inner {
+    display: inline-block;
+    background-color: white;
+    mix-blend-mode: screen;
+    padding: 5px;
+    width: 850px;
+}
+
+h1 {
+    color: black;
+    font-size: 50px;
+    letter-spacing: 5px;
+}
+
+.outer:hover .bg {
+    width: 100%;
+}
+
+

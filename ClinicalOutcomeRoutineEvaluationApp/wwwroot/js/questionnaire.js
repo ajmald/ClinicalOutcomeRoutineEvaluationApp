@@ -140,17 +140,19 @@
             return chart;
         });
 
-
+        $("#btnRefaireTest").prop("disabled", false);
+        $("#btnSoumettreTest").prop("disabled", true);
 
     }
-    else {
-        alert('Vous devez repondre a toutes les questions');
+    else 
+        alert('Vous devez répondre à toutes les questions');
     }
 
 
 
 
-
+function retakeTest() {
+    window.location.href = '/Home/Questionnaire/';
 }
 
 $(document).ready(function () {
