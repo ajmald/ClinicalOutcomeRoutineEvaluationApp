@@ -46,23 +46,25 @@
                         @for (var i = 0; i < Model.Questions.Count; i++)
                         {
 
-                            <div class="input-group" id="">
-                                <label><b>@Model.Questions[i].Text</b></label>
-                                <input name="QuestionType" class="test" type="hidden" value="@Model.Questions[i].Type">
+                        <div class="input-group" id="">
+                            <label><b>@Model.Questions[i].Text</b></label>
+                            <input name="QuestionType" class="test" type="hidden" value="@Model.Questions[i].Type">
 
-                                @for (var j = 0; j < Model.Answers.Count; j++)
-                                {
-                                    <div class="container" style="margin-top:10px">
-                                        <div class="form-check">
-                                            <input class="radio-button" type="radio" id="radioanswer_@Model.Random.Next(1,100)" name="radioanswer_@i" value="@Model.Answers[j].Score">
-                                            <label class="form-check-label" for="radioanswer_@i">
-                                                @Model.Answers[j].Text
-                                            </label>
-                                        </div>
+                            @for (var j = 0; j < Model.Answers.Count; j++)
+                            {
+                                <div class="container" style="margin-top:10px">
+                                    <div class="form-check">
+                                        <input class="radio-button" type="radio" id="radioanswer_@Model.Random.Next(1,100)" name="radioanswer_@i" value="@Model.Answers[j].Score">
+                                        <label class="form-check-label" for="radioanswer_@i">
+                                            @Model.Answers[j].Text
+                                        </label>
                                     </div>
+                                </div>
 
-                                }
-                            </div>
+                               
+
+                            }
+                        </div>
                             <br />
                         }
 

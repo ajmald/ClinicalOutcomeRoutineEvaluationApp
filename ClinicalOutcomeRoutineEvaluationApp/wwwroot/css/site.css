@@ -85,7 +85,17 @@ display:none;
     color: hotpink;
 }
 
+.radio-button {
+    cursor:pointer;
+}
 
+input[type=radio]:checked + label:after {
+    content: "\2022";
+    color: #373c3e;
+    font-size: 56px;
+    text-align: center;
+    line-height: 18px;
+}
 
 
 .outer {
