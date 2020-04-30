@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
 
 namespace ClinicalOutcomeRoutineEvaluationApp
 {
@@ -33,7 +34,10 @@ namespace ClinicalOutcomeRoutineEvaluationApp
             {
                 builder.AddRazorRuntimeCompilation();
             }
+
+
 #endif
+            services.AddDbContext<CoreDbContext>(options => options.UseSqlite(Configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

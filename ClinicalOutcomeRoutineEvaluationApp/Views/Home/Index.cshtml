@@ -2,6 +2,9 @@
 @{
     ViewData["Title"] = "Covid-19 Confinement Effect - Psychological Assessment";
 }
+@{
+    Layout = "";
+}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +15,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="~/css/site.css" rel="stylesheet" />
+    <link href="~/css/home.css" rel="stylesheet" />
     <style>
         .fakeimg {
             height: 200px;
@@ -21,19 +24,21 @@
     </style>
 </head>
 <body>
+    <!--
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <a class="navbar-brand" href="#">Test psychologique par rapport au COVID-19 </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>
     </nav>
+        -->
 
     <div class="row">
         <div class="outer">
             <div class="bg">
                 <div class="inner">
                     <h3>
-                        Ce test vous permet de vous faire un bilan psychochologique et ainsi à promouvoir la récupération, la santé et le bien-être.
+                        Bienvenue sur la plateforme de soutien psychologique lié au Covid-19
                     </h3>
                 </div>
             </div>
@@ -44,28 +49,23 @@
     <div class="container">
         <div class="row">
             <div class="col text-center">
-                <button type="button" class="btn btn-outline-primary" onclick="startQuestionnaire()">Démarrez le test</button>
+                <button type="button" class="btn btn-outline-primary" onclick="startQuestionnaire()">Démarrez un test psychologique</button>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="outer">
-            <div class="bg">
-                <div class="inner">
-                    <h3>
-                        Ce test comporte 34 questions.
-                        Ce test est anonyme. Aucune donnée n'est enregistré ou traité.
-                    </h3>
+    <br />
+    <br />
+    <!--
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <button type="button" class="btn btn-outline-primary" onclick="signalerIsolement()">Signalez un isolement</button>
                 </div>
             </div>
         </div>
-    </div>
+    -->
 
-    <nav class="navbar navbar-dark bg-dark mt-5 fixed-bottom">
-        <div class="navbar-expand m-auto navbar-text">
-            <p>Développé avec <i class="fa fa-heart" aria-hidden="true"></i> par  <a href="https://ajmaldookhan.com">Ajmal</a></p>
-        </div>
-    </nav>
+
 </body>
 
 </html>

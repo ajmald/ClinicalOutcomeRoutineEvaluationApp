@@ -2,17 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ClinicalOutcomeRoutineEvaluationApp.Models
 {
     public class Question
     {
-        private string text;
-        private string type;
-        private List<Answer> answers;
+        [Key]
+        public int Id { get; set; }
 
-        public string Text { get => text; set => text = value; }
-        public string Type { get => type; set => type = value; }
-        public List<Answer> Answers { get => answers; set => answers = value; }
+        public string Text { get; set; }
+        public string Type { get; set; }
+        
     }
 }
