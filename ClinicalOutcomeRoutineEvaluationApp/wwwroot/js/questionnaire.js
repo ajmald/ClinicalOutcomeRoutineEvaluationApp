@@ -52,7 +52,9 @@
         meanF = Math.floor(scoreF / typeF);
         meanP = Math.floor(scoreP / typeP);
         meanR = Math.floor(scoreR / typeR);
-        console.log(meanF);
+        meanTotal = (meanW + meanF + meanP + meanR) / 4;
+
+        console.log(meanTotal);
 
         let scores = [];
         var scoreTypes = ["Bien-être", "Fonctionnement", "Risque", "Problèmes et Symptômes"];
@@ -83,6 +85,8 @@
         $("#p").show();
         $("#f").show();
         $("#r").show();
+
+
 
         nv.addGraph(function () {
             var chart = nv.models.gaugeChart()
@@ -139,6 +143,35 @@
             nv.utils.windowResize(chart.update);
             return chart;
         });
+        var hostname = window.location.hostname;
+        var port = window.location.port;
+        if (meanTotal < 1.4) {
+            if (hostname + port !== 'https://covid19psychotest.herokuapp.com/') {
+                document.getElementById('mood').innerHTML += "<img src = 'https://localhost:44354/img/happy.png' class='mx-auto d-block' height='100' width='100''>";
+            }
+            else {
+                document.getElementById('mood').innerHTML += "<img src = 'https://covid19psychotest.herokuapp.com/img/happy.png' class='mx-auto d-block' height='100' width='100''>";
+            }
+
+        }
+        if (meanTotal >= 1.4 && meanTotal < 3) {
+            if (hostname + port !== 'https://covid19psychotest.herokuapp.com/') {
+                document.getElementById('mood').innerHTML += "<img src = 'https://localhost:44354/img/neutral.png' class='mx-auto d-block' height='100' width='100''>";
+            }
+            else {
+                document.getElementById('mood').innerHTML += "<img src = 'https://covid19psychotest.herokuapp.com/img/neutral.png' class='mx-auto d-block' height='100' width='100''>";
+            }
+
+        }
+        if (meanTotal >= 3) {
+            if (hostname + port !== 'https://covid19psychotest.herokuapp.com/') {
+                document.getElementById('mood').innerHTML += "<img src = 'https://localhost:44354/img/neutral.png' class='mx-auto d-block' height='100' width='100''>";
+            }
+            else {
+                document.getElementById('mood').innerHTML += "<img src = 'https://covid19psychotest.herokuapp.com/img/neutral.png' class='mx-auto d-block' height='100' width='100''>";
+            }
+
+        }
 
         $("#btnRefaireTest").prop("disabled", false);
         $("#btnSoumettreTest").prop("disabled", true);
@@ -147,8 +180,6 @@
     else 
         alert('Vous devez répondre à toutes les questions');
     }
-
-
 
 
 function retakeTest() {

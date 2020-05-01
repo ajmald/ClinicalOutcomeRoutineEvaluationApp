@@ -17,7 +17,7 @@
     <script src="https://rawgit.com/enplore/nvd3-charts/master/gauge.js"></script>
     <script src="https://rawgit.com/enplore/nvd3-charts/master/gaugeChart.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="~/js/questionnaire.js"></script>
+    <script src="~/js/questionnaire.js?1500"></script>
     
 </head>
 <body>
@@ -26,7 +26,7 @@
             Durant la dernière semaine écoulée...
         </h2>
     </div>
-   
+
 
     <div class="container" style="margin-top:30px">
         <form asp-action="" name="" id="">
@@ -41,48 +41,48 @@
                         @for (var i = 0; i < Model.Questions.Count; i++)
                         {
 
-                        <div class="input-group" id="">
-                            <label><b>@Model.Questions[i].Text</b></label>
-                            <input name="QuestionType" class="test" type="hidden" value="@Model.Questions[i].Type">
+                            <div class="input-group" id="">
+                                <label><b>@Model.Questions[i].Text</b></label>
+                                <input name="QuestionType" class="test" type="hidden" value="@Model.Questions[i].Type">
 
-                            @for (var j = 0; j < Model.Answers.Count; j++)
-                            {
-                                <div class="container" style="margin-top:10px">
-                                    <div class="form-check">
-                                        <input class="radio-button" type="radio" id="radioanswer_@Model.Random.Next(1,100)" name="radioanswer_@i" value="@Model.Answers[j].Score">
-                                        <label class="form-check-label" for="radioanswer_@i">
-                                            @Model.Answers[j].Text
-                                        </label>
+                                @for (var j = 0; j < Model.Answers.Count; j++)
+                                {
+                                    <div class="container" style="margin-top:10px">
+                                        <div class="form-check">
+                                            <input class="radio-button" type="radio" id="radioanswer_@Model.Random.Next(1,100)" name="radioanswer_@i" value="@Model.Answers[j].Score">
+                                            <label class="form-check-label" for="radioanswer_@i">
+                                                @Model.Answers[j].Text
+                                            </label>
+                                        </div>
                                     </div>
-                                </div>
 
-                               
 
-                            }
-                        </div>
+
+                                }
+                            </div>
                             <br />
                         }
 
                     </div>
                     <div class="container">
-                            <div class="row">
-                                <div class="col text-center">
-                                    <button type="button" id="btnSoumettreTest" class="btn btn-outline-primary" onclick="submitTest()">Valider le test</button>
-                                </div>
-                            </div>
-                            <br />
-                            <br />
-                            <div class="row">
-                                <div class="col text-center">
-                                    <button type="button" id="btnRefaireTest" class="btn btn-outline-primary" disabled onclick="retakeTest()">Refaire le test</button>
-                                </div>
+                        <div class="row">
+                            <div class="col text-center">
+                                <button type="button" id="btnSoumettreTest" class="btn btn-outline-primary" onclick="submitTest()">Valider le test</button>
                             </div>
                         </div>
-
-
-                        <br>
+                        <br />
+                        <br />
+                        <div class="row">
+                            <div class="col text-center">
+                                <button type="button" id="btnRefaireTest" class="btn btn-outline-primary" disabled onclick="retakeTest()">Refaire le test</button>
+                            </div>
+                        </div>
                     </div>
+
+
+                    <br>
                 </div>
+            </div>
 
         </form>
     </div>
@@ -98,7 +98,10 @@
             <label id="f" style="font-size:20px">Fonctionnement</label>
         </div>
     </div>
-
+    <div class="center">
+        <div class="center" id="mood">
+        </div>
+    </div>
     <div class="row">
         <div id="gauge-chart-p" class="col-sm-6">
             <svg></svg>
