@@ -147,35 +147,31 @@
         console.log(hostname);
         console.log('cr1');
         if (meanTotal < 1.4) {
-            /*if (hostname !== 'covid19psychotest.herokuapp.com') {
-                document.getElementById('mood').innerHTML += "<img src = '//localhost:44354/img/happy.png' class='mx-auto d-block' height='100' width='100''>";
+            if (hostname !== 'covid19psychotest.herokuapp.com') {
+                document.getElementById('mood').innerHTML += "<img src = 'https://localhost:44354/img/happy.png' class='mx-auto d-block' height='100' width='100''>";
             }
             else {
+                document.getElementById('mood').innerHTML += "<img src = 'https://covid19psychotest.herokuapp.com/img/happy.png' class='mx-auto d-block' height='100' width='100''>";
             }
-            */
-            document.getElementById('mood').innerHTML += "<img src = 'https://covid19psychotest.herokuapp.com/img/happy.png' class='mx-auto d-block' height='100' width='100''>";
-
-
+            
         }
         if (meanTotal >= 1.4 && meanTotal < 3) {
-            /*if (hostname !== 'covid19psychotest.herokuapp.com') {
-                document.getElementById('mood').innerHTML += "<img src = 'localhost:44354/img/neutral.png' class='mx-auto d-block' height='100' width='100''>";
+            if (hostname !== 'covid19psychotest.herokuapp.com') {
+                document.getElementById('mood').innerHTML += "<img src = 'https://localhost:44354/img/neutral.png' class='mx-auto d-block' height='100' width='100''>";
             }
             else {
-            }*/
+            }
             document.getElementById('mood').innerHTML += "<img src = 'https://covid19psychotest.herokuapp.com/img/neutral.png' class='mx-auto d-block' height='100' width='100''>";
 
 
         }
         if (meanTotal >= 3) {
-            /*if (hostname !== 'covid19psychotest.herokuapp.com') {
-                document.getElementById('mood').innerHTML += "<img src = 'localhost:44354/img/sad.png' class='mx-auto d-block' height='100' width='100''>";
+            if (hostname !== 'covid19psychotest.herokuapp.com') {
+                document.getElementById('mood').innerHTML += "<img src = 'https://localhost:44354/img/sad.png' class='mx-auto d-block' height='100' width='100''>";
             }
             else {
-            }*/
-
-            document.getElementById('mood').innerHTML += "<img src = 'https://covid19psychotest.herokuapp.com/img/sad.png' class='mx-auto d-block' height='100' width='100''>";
-
+                document.getElementById('mood').innerHTML += "<img src = 'https://covid19psychotest.herokuapp.com/img/sad.png' class='mx-auto d-block' height='100' width='100''>";
+            }
 
         }
 
