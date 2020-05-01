@@ -144,9 +144,9 @@
             return chart;
         });
         var hostname = window.location.hostname;
-        var port = window.location.port;
+        console.log(hostname);
         if (meanTotal < 1.4) {
-            if (hostname + port !== 'https://covid19psychotest.herokuapp.com/') {
+            if (hostname !== 'https://covid19psychotest.herokuapp.com') {
                 document.getElementById('mood').innerHTML += "<img src = 'https://localhost:44354/img/happy.png' class='mx-auto d-block' height='100' width='100''>";
             }
             else {
@@ -155,7 +155,7 @@
 
         }
         if (meanTotal >= 1.4 && meanTotal < 3) {
-            if (hostname + port !== 'https://covid19psychotest.herokuapp.com/') {
+            if (hostname !== 'https://covid19psychotest.herokuapp.com') {
                 document.getElementById('mood').innerHTML += "<img src = 'https://localhost:44354/img/neutral.png' class='mx-auto d-block' height='100' width='100''>";
             }
             else {
@@ -164,7 +164,7 @@
 
         }
         if (meanTotal >= 3) {
-            if (hostname + port !== 'https://covid19psychotest.herokuapp.com/') {
+            if (hostname !== 'https://covid19psychotest.herokuapp.com') {
                 document.getElementById('mood').innerHTML += "<img src = 'https://localhost:44354/img/neutral.png' class='mx-auto d-block' height='100' width='100''>";
             }
             else {
