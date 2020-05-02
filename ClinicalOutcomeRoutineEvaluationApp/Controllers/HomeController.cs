@@ -33,7 +33,10 @@ namespace ClinicalOutcomeRoutineEvaluationApp.Controllers
 
         
 
-
+        public IActionResult About()
+        {
+            return View();
+        }
 
         public IActionResult Privacy()
         {

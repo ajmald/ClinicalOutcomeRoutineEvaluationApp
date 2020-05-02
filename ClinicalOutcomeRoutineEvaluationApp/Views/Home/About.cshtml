@@ -1,0 +1,55 @@
+﻿@model ClinicalOutcomeRoutineEvaluationApp.ViewModels.QuestionAnswerViewModel
+@{
+    ViewData["Title"] = "Covid-19 Confinement Effect - Psychological Assessment";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Test psychologique par rapport au COVID-19 </title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <div class="container" style="margin-top:30px">
+        <h2>
+            A propos de ce questionnaire
+        </h2>
+    </div>
+
+
+    <div class="container" style="margin-top:30px">
+        <p>
+            Ce questionnaire comporte 34 questions et chaque question comporte la même échelle de réponse, 5 au total, libellé
+            "Pas du tout","Rarement","Quelques fois","Souvent" et "La plupart du temps"
+            Elle correspond à votre situation au cours des 7 derniers jours.
+            Elle a été conçu pour couvrir 4 domaines spécifiques, que sont le bien-être,  les problèmes, le fonctionnement et le risque.
+        </p>
+
+        <p>
+            Le bien-être comporte 4 questions, les problèmes 12 questions, le fonctionnement 12 questions et le risque 6 questions.
+            Concernant le risque, 4 questions s’adressent au risque qu’on se porte à soi-même et 2 questions concernent le risque qu’on porte au autres. 18 questions sont considérés comme d’importance majeure et 16 considérés comme d’importance moindre.
+            8 questions sont positives et sont scorées en inverse. Les scores sur chaque domaine peuvent être interprétés séparément car les
+            expériences psychométriques n’ont jamais vraiment démontré de vrais liens entre eux. Dans chaque échantillon qui a été étudié jusqu’à aujourd’hui, les réponses liés au risque ont été traités séparément par les psychothérapeutes et les psychologues.
+            La moyenne des autres en excluant le risque peut être considéré comme un bon indicateur de votre état psychologique.
+        </p>
+        <p>
+           Ce questionnaire est basé sur des études très sérieuses publiés dans le ’British Journal of Psychiatry’ et le ’Journal of Mental Health’.
+        </p>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col text-center">
+                <button type="button" class="btn btn-outline-primary" onclick="start()">Démarrez le questionnaire</button>
+            </div>
+        </div>
+    </div>
+ 
+</body>
+
+</html>
+<script>
+    function start() {
+        window.location.href = '/Home/Questionnaire/';
+    }
+</script>
